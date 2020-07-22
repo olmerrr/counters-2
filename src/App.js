@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
-import Counter from './components/Counter';
-import { TiPlusOutline } from 'react-icons/ti';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { TiPlusOutline } from 'react-icons/ti';
+import { v4 as uuid } from 'uuid';
+import Counter from './components/Counter';
 
 function App() {
   const [counters, setCounters] = React.useState(1);
@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <h1>Counters 2</h1>
       <ul>
-        {[...Array(counters).keys()].map((el, idx) => (
-          <li key={idx}>
+        {[...Array(counters).keys()].map((el) => (
+          <li key={uuid()}>
             <Counter />
           </li>
         ))}
