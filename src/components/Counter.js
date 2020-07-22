@@ -8,7 +8,7 @@ export default function Counter(props) {
 
   return (
     <div>
-      <div class="btn-group btn-group-lg m-3 my-btn-group-size">
+      <div className="btn-group btn-group-lg m-3 my-btn-group-size">
         {[1, 2, 3].map((value, idx) => (
           <CountBtn
             value={value}
@@ -18,8 +18,8 @@ export default function Counter(props) {
           />
         ))}
       </div>
-      <span class="counter-value">{count}</span>
-      <div class="btn-group btn-group-lg m-3">
+      <span className="counter-value">{count}</span>
+      <div className="btn-group btn-group-lg m-3">
         {[-3, -2, -1].map((value, idx) => (
           <CountBtn
             value={value}
