@@ -5,19 +5,22 @@ import { TiPlusOutline } from 'react-icons/ti';
 import { v4 as uuid } from 'uuid';
 import Counter from './components/Counter';
 
-function App() {
-  const [counters, setCounters] = React.useState(1);
+function App({ defaultCounterId }) {
+  // array of unique ids fot key values that will be mapped to each <li> <Counter/> </li>
+  const [idsOfAllCounters, setIdsOfAllCounters] = React.useState([
+    defaultCounterId,
+  ]);
 
   const add = () => {
-    setCounters(counters + 1);
+    setIdsOfAllCounters([...idsOfAllCounters, uuid()]);
   };
 
   return (
     <div className="App">
       <h1>Counters 2</h1>
       <ul>
-        {[...Array(counters).keys()].map((el) => (
-          <li key={uuid()}>
+        {idsOfAllCounters.map((counterId) => (
+          <li key={counterId}>
             <Counter />
           </li>
         ))}
@@ -31,4 +34,5 @@ function App() {
   );
 }
 
+App.defaultProps = { defaultCounterId: uuid() };
 export default App;
