@@ -1,6 +1,7 @@
 import React from 'react';
 import { TiPlusOutline } from 'react-icons/ti';
 import { v4 as uuid } from 'uuid';
+
 import Counter from './Counter';
 
 /**
@@ -15,12 +16,17 @@ export default function CounterList({ defaultCounterId }) {
 
   const addCounter = () => setIdsOfAllCounters([...idsOfAllCounters, uuid()]);
 
+  const deleteCounter = (id) =>
+    setIdsOfAllCounters(
+      idsOfAllCounters.filter((counterId) => counterId !== id)
+    );
+
   return (
     <React.Fragment>
       <ul>
         {idsOfAllCounters.map((counterId) => (
           <li key={counterId}>
-            <Counter />
+            <Counter id={counterId} deleteCounter={deleteCounter} />
           </li>
         ))}
       </ul>

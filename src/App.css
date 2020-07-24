@@ -14,6 +14,14 @@ ul {
   margin: 0;
   padding: 0;
 }
+.counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
 
 .btn-add {
   border: none;
@@ -27,14 +35,15 @@ ul {
   outline: none;
 }
 
-.counter-value {
+.counter-value,
+.btn-delete {
   background: #61dafb;
   color: #282c34;
   font-weight: bold;
   font-size: 1rem;
   width: 48px;
   height: 48px;
-  display: inline-block;
+  /* display: inline-block; */
   padding: 0.8rem;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -45,4 +54,26 @@ ul {
 
 .btn-group-lg {
   width: 170px;
+}
+
+.btn-delete {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: -48px;
+  transform: translate(0, 25%);
+  -webkit-transform: translate(0, 25%);
+  -moz-transform: translate(0, 25%);
+  -ms-transform: translate(0, 25%);
+  -o-transform: translate(0, 25%);
+}
+.btn-delete:hover {
+  color: #61dafb;
+}
+
+.btn-delete:focus {
+  outline: none;
 }

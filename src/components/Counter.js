@@ -1,13 +1,15 @@
 import React from 'react';
+import { FaTrash } from 'react-icons/fa';
+
 import CountBtnGroup from './CountBtnGroup';
 
-export default function Counter() {
+export default function Counter({ id, deleteCounter }) {
   const [count, setCount] = React.useState(0);
 
   const updateCounter = (newCount) => setCount(newCount);
 
   return (
-    <div>
+    <div className="counter-container">
       <CountBtnGroup
         values={[1, 2, 3]}
         count={count}
@@ -21,6 +23,10 @@ export default function Counter() {
         count={count}
         updateCounter={updateCounter}
       />
+
+      <button onClick={() => deleteCounter(id)} className="btn-delete">
+        <FaTrash size={24} />
+      </button>
     </div>
   );
 }
