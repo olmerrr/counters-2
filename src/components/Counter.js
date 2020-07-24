@@ -1,35 +1,26 @@
 import React from 'react';
-import CountBtn from './CountBtn';
-import { v4 as uuid } from 'uuid';
+import CountBtnGroup from './CountBtnGroup';
 
-export default function Counter(props) {
+export default function Counter() {
   const [count, setCount] = React.useState(0);
 
   const updateCounter = (newCount) => setCount(newCount);
 
   return (
     <div>
-      <div className="btn-group btn-group-lg m-3 my-btn-group-size">
-        {[1, 2, 3].map((value) => (
-          <CountBtn
-            value={value}
-            count={count}
-            updateCounter={updateCounter}
-            key={uuid()}
-          />
-        ))}
-      </div>
+      <CountBtnGroup
+        values={[1, 2, 3]}
+        count={count}
+        updateCounter={updateCounter}
+      />
+
       <span className="counter-value">{count}</span>
-      <div className="btn-group btn-group-lg m-3">
-        {[-3, -2, -1].map((value) => (
-          <CountBtn
-            value={value}
-            count={count}
-            updateCounter={updateCounter}
-            key={uuid()}
-          />
-        ))}
-      </div>
+
+      <CountBtnGroup
+        values={[-3, -2, -1]}
+        count={count}
+        updateCounter={updateCounter}
+      />
     </div>
   );
 }

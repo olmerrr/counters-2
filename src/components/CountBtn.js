@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function CountBtn(props) {
+export default function CountBtn({ value, count, updateCounter }) {
   return (
     <button
       type="button"
       className="btn btn-secondary"
-      onClick={() => props.updateCounter(props.value + props.count)}
+      onClick={() => updateCounter(value + count)}
     >
-      {props.value > 0 ? '+' + props.value : props.value}
+      {value > 0 ? `+${value}` : value}
     </button>
   );
 }
